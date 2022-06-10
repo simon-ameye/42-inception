@@ -1,19 +1,19 @@
 version: '3'
 services:
 
-#  nginx:
-#    build: requirements/nginx/
-#    container_name: nginx
-#    ports:
-#      - "80:80"
-#      - "443:443"
-#    volumes:
-#      - "~/Desktop/inception/website:/var/www/html"
-#    depends_on:
-#      - wordpress
-#    networks:
-#      - frontend
-#    restart: always
+  nginx:
+    build: requirements/nginx/
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "~/Desktop/inception/website:/var/www/html"
+    depends_on:
+      - wordpress
+    networks:
+      - frontend
+    restart: always
 
   wordpress:
     build: requirements/wordpress/
