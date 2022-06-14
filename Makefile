@@ -1,4 +1,5 @@
 #docker container run -it alpine:3.13 /bin/sh
+#docker exec -it nginx sh
 
 NAME = inception
 
@@ -14,7 +15,7 @@ reset:
 	-docker rm $(docker ps -qa)
 	-docker rmi -f $(docker images -qa)
 	-docker volume rm $(docker volume ls -q)
-	-docker network rm $(docker network ls -q) 2>/dev/null
+	-docker network rm $(docker network ls -q)
 
 #stop the container
 stop:

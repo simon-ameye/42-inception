@@ -1,0 +1,35 @@
+2022-06-13 16:28:56 0 [Note] /usr/bin/mysqld (server 10.6.8-MariaDB) starting as process 58 ...
+2022-06-13 16:28:56 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+2022-06-13 16:28:56 0 [Note] InnoDB: Number of pools: 1
+2022-06-13 16:28:56 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-06-13 16:28:56 0 [Note] mysqld: O_TMPFILE is not supported on /var/tmp (disabling future attempts)
+2022-06-13 16:28:56 0 [Note] InnoDB: Using Linux native AIO
+2022-06-13 16:28:56 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+2022-06-13 16:28:56 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-06-13 16:28:56 0 [Note] InnoDB: 128 rollback segments are active.
+2022-06-13 16:28:56 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2022-06-13 16:28:56 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2022-06-13 16:28:56 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2022-06-13 16:28:56 0 [Note] InnoDB: 10.6.8 started; log sequence number 42197; transaction id 14
+2022-06-13 16:28:56 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-06-13 16:28:56 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+2022-06-13 16:28:57 0 [Note] InnoDB: Buffer pool(s) load completed at 220613 16:28:57
+2022-06-13 16:28:58 0 [Note] /usr/bin/mysqld (server 10.6.8-MariaDB) starting as process 1 ...
+2022-06-13 16:28:58 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+2022-06-13 16:28:58 0 [Note] InnoDB: Number of pools: 1
+2022-06-13 16:28:58 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-06-13 16:28:58 0 [Note] mysqld: O_TMPFILE is not supported on /var/tmp (disabling future attempts)
+2022-06-13 16:28:58 0 [Note] InnoDB: Using Linux native AIO
+2022-06-13 16:28:58 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+2022-06-13 16:28:58 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-06-13 16:28:58 0 [Note] InnoDB: 128 rollback segments are active.
+2022-06-13 16:28:58 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2022-06-13 16:28:58 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2022-06-13 16:28:58 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2022-06-13 16:28:58 0 [Note] InnoDB: 10.6.8 started; log sequence number 42209; transaction id 14
+2022-06-13 16:28:58 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-06-13 16:28:58 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+2022-06-13 16:28:58 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-06-13 16:28:58 0 [Note] InnoDB: Buffer pool(s) load completed at 220613 16:28:58
+2022-06-13 16:28:58 0 [Note] /usr/bin/mysqld: ready for connections.
+Version: '10.6.8-MariaDB'  socket: '/run/mysqld/mysqld.sock'  port: 3306  MariaDB Server

@@ -1,0 +1,583 @@
+docker stop 
+docker rm 
+docker rmi -f 
+docker volume rm 
+docker network rm  2>/dev/null
+Deleted build cache objects:
+85m3x0bcrnebxervvgpax3t4e
+7qokpuyfa4vlnndev755x6ndm
+x6kqn0upf12km7h9w7kxfagxd
+mwyekaq1vkd5n2m3c2dodlfbv
+32l0mo1g741tv6ht6kqn7v1p3
+woyjs0yi6ko6umgnvykx9kveo
+qise81ks28g297y6m8tqfzmqk
+pmmkjba5myk5wdo18rkmhi5ek
+km6ovrwgmzjsfmkvlpn8ww43d
+
+Total reclaimed space: 32.5kB
+#1 [srcs_nginx internal] load .dockerignore
+#1 ...
+
+#2 [srcs_mariadb internal] load build definition from Dockerfile
+#2 transferring dockerfile: 273B 0.1s done
+#2 DONE 0.6s
+
+#3 [srcs_mariadb internal] load .dockerignore
+#3 transferring context: 44B 0.0s done
+#3 DONE 0.7s
+
+#1 [srcs_nginx internal] load .dockerignore
+#1 transferring context: 44B 0.0s done
+#1 ...
+
+#4 [srcs_mariadb internal] load metadata for docker.io/library/alpine:3.13
+#4 DONE 0.0s
+
+#5 [srcs_mariadb 1/3] FROM docker.io/library/alpine:3.13
+#5 CACHED
+
+#6 [srcs_mariadb 2/3] RUN	APK update && apk upgrade && apk add --no-cache         mariadb         mariadb-client
+#6 ...
+
+#7 [srcs_wordpress internal] load build definition from Dockerfile
+#7 transferring dockerfile: 2.44kB done
+#7 DONE 1.3s
+
+#8 [srcs_nginx internal] load build definition from Dockerfile
+#8 transferring dockerfile: 558B done
+#8 DONE 1.4s
+
+#9 [srcs_wordpress internal] load .dockerignore
+#9 transferring context: 44B 0.0s done
+#9 DONE 1.7s
+
+#10 [srcs_mariadb internal] load build context
+#10 ...
+
+#1 [srcs_nginx internal] load .dockerignore
+#1 DONE 1.8s
+
+#4 [srcs_wordpress internal] load metadata for docker.io/library/alpine:3.13
+#4 DONE 0.0s
+
+#10 [srcs_mariadb internal] load build context
+#10 ...
+
+#5 [srcs_wordpress 1/3] FROM docker.io/library/alpine:3.13
+#5 CACHED
+
+#10 [srcs_mariadb internal] load build context
+#10 transferring context: 1.73kB 0.3s done
+#10 ...
+
+#4 [srcs_nginx internal] load metadata for docker.io/library/alpine:3.13
+#4 DONE 0.0s
+
+#5 [srcs_nginx 1/3] FROM docker.io/library/alpine:3.13
+#5 CACHED
+
+#11 [srcs_nginx internal] load build context
+#11 ...
+
+#10 [srcs_mariadb internal] load build context
+#10 DONE 1.9s
+
+#12 [srcs_nginx 2/6] RUN	APK update && apk upgrade && apk add --no-cache         nginx         openssl
+#12 ...
+
+#13 [srcs_wordpress internal] load build context
+#13 transferring context: 27.12kB 0.0s done
+#13 DONE 1.2s
+
+#11 [srcs_nginx internal] load build context
+#11 transferring context: 870B done
+#11 DONE 1.3s
+
+#14 [srcs_wordpress  2/11] RUN	APK update && apk upgrade && apk add --no-cache 		wget				        tar                 		mariadb-client				redis						php7						php7-fpm					php7-bcmath					php7-bz2 					php7-calendar				php7-ctype					php7-curl					php7-dom					php7-exif					php7-fileinfo				php7-gd						php7-gmagick				php7-gmp					php7-iconv					php7-imap					php7-intl					php7-json					php7-mbstring				php7-mcrypt					php7-memcache				php7-mysqli					php7-mysqlnd				php7-openssl				php7-pcntl					php7-pdo					php7-pdo_mysql				php7-pdo_pgsql				php7-pdo_sqlite 			php7-pgsql					php7-phar					php7-posix					php7-session				php7-shmop					php7-simplexml				php7-soap					php7-sockets				php7-sodium					php7-sqlite3				php7-sysvsem				php7-sysvshm				php7-tokenizer				php7-xml					php7-xmlreader				php7-xmlwriter				php7-xsl					php7-zip					php7-zlib
+#14 2.271 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
+#14 2.504 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
+#14 3.131 v3.13.10-44-gfad72fd31b [https://dl-cdn.alpinelinux.org/alpine/v3.13/main]
+#14 3.131 v3.13.10-39-gbc0382416e [https://dl-cdn.alpinelinux.org/alpine/v3.13/community]
+#14 3.132 OK: 13900 distinct packages available
+#14 3.811 (1/3) Upgrading libcrypto1.1 (1.1.1n-r0 -> 1.1.1o-r0)
+#14 3.968 (2/3) Upgrading libssl1.1 (1.1.1n-r0 -> 1.1.1o-r0)
+#14 3.994 (3/3) Upgrading zlib (1.2.12-r0 -> 1.2.12-r1)
+#14 4.008 OK: 6 MiB in 14 packages
+#14 4.110 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
+#14 4.375 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
+#14 4.936 (1/114) Installing mariadb-common (10.5.16-r0)
+#14 5.004 (2/114) Installing libgcc (10.2.1_pre1-r3)
+#14 5.013 (3/114) Installing ncurses-terminfo-base (6.2_p20210109-r0)
+#14 5.033 (4/114) Installing ncurses-libs (6.2_p20210109-r0)
+#14 5.046 (5/114) Installing libstdc++ (10.2.1_pre1-r3)
+#14 5.084 (6/114) Installing mariadb-client (10.5.16-r0)
+#14 5.526 (7/114) Installing php7-common (7.4.26-r0)
+#14 5.532 (8/114) Installing argon2-libs (20190702-r1)
+#14 5.537 (9/114) Installing libedit (20191231.3.1-r1)
+#14 5.544 (10/114) Installing pcre2 (10.36-r0)
+#14 5.557 (11/114) Installing xz-libs (5.2.5-r1)
+#14 5.563 (12/114) Installing libxml2 (2.9.14-r0)
+#14 5.583 (13/114) Installing php7 (7.4.26-r0)
+#14 5.901 (14/114) Installing php7-bcmath (7.4.26-r0)
+#14 6.710 (15/114) Installing libbz2 (1.0.8-r1)
+#14 6.710 (16/114) Installing php7-bz2 (7.4.26-r0)
+#14 6.710 (17/114) Installing php7-calendar (7.4.26-r0)
+#14 6.710 (18/114) Installing php7-ctype (7.4.26-r0)
+#14 6.710 (19/114) Installing ca-certificates (20211220-r0)
+#14 6.710 (20/114) Installing brotli-libs (1.0.9-r3)
+#14 6.710 (21/114) Installing nghttp2-libs (1.42.0-r1)
+#14 6.710 (22/114) Installing libcurl (7.79.1-r1)
+#14 6.710 (23/114) Installing php7-curl (7.4.26-r0)
+#14 6.710 (24/114) Installing php7-dom (7.4.26-r0)
+#14 6.710 (25/114) Installing oniguruma (6.9.6-r0)
+#14 6.710 (26/114) Installing php7-mbstring (7.4.26-r0)
+#14 6.710 (27/114) Installing php7-exif (7.4.26-r0)
+#14 6.710 (28/114) Installing php7-fileinfo (7.4.26-r0)
+#14 6.710 (29/114) Installing php7-fpm (7.4.26-r0)
+#14 6.843 (30/114) Installing libxau (1.0.9-r0)
+#14 6.843 (31/114) Installing libbsd (0.10.0-r0)
+#14 6.843 (32/114) Installing libxdmcp (1.1.3-r0)
+#14 6.843 (33/114) Installing libxcb (1.14-r1)
+#14 6.843 (34/114) Installing libx11 (1.7.1-r0)
+#14 6.913 (35/114) Installing libxext (1.3.4-r0)
+#14 6.918 (36/114) Installing libice (1.0.10-r0)
+#14 6.923 (37/114) Installing libuuid (2.37.4-r0)
+#14 6.927 (38/114) Installing libsm (1.2.3-r0)
+#14 6.931 (39/114) Installing libxt (1.2.1-r0)
+#14 6.940 (40/114) Installing libxpm (3.5.13-r0)
+#14 6.946 (41/114) Installing libpng (1.6.37-r1)
+#14 6.954 (42/114) Installing freetype (2.10.4-r3)
+#14 6.969 (43/114) Installing libjpeg-turbo (2.1.0-r0)
+#14 6.985 (44/114) Installing libwebp (1.1.0-r0)
+#14 6.998 (45/114) Installing php7-gd (7.4.26-r0)
+#14 7.005 (46/114) Installing ghostscript-fonts (8.11-r2)
+#14 7.396 (47/114) Installing libltdl (2.4.6-r7)
+#14 7.402 (48/114) Installing tiff (4.3.0-r0)
+#14 7.415 (49/114) Installing expat (2.2.10-r6)
+#14 7.430 (50/114) Installing pkgconf (1.7.3-r0)
+#14 7.437 (51/114) Installing libffi (3.3-r2)
+#14 7.442 (52/114) Installing libintl (0.20.2-r2)
+#14 7.454 (53/114) Installing libblkid (2.37.4-r0)
+#14 7.463 (54/114) Installing libmount (2.37.4-r0)
+#14 7.471 (55/114) Installing pcre (8.44-r0)
+#14 7.480 (56/114) Installing glib (2.66.8-r0)
+#14 7.531 (57/114) Installing shared-mime-info (2.0-r0)
+#14 7.554 (58/114) Installing gdk-pixbuf (2.42.4-r0)
+#14 7.566 (59/114) Installing libwmf (0.2.12-r0)
+#14 7.744 (60/114) Installing graphicsmagick (1.3.36-r0)
+#14 7.891 (61/114) Installing php7-pecl-gmagick (2.0.5_rc1-r6)
+#14 7.898 (62/114) Installing gmp (6.2.1-r1)
+#14 ...
+
+#12 [srcs_nginx 2/6] RUN	APK update && apk upgrade && apk add --no-cache         nginx         openssl
+#12 2.181 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
+#12 2.437 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
+#12 3.005 v3.13.10-44-gfad72fd31b [https://dl-cdn.alpinelinux.org/alpine/v3.13/main]
+#12 3.013 v3.13.10-39-gbc0382416e [https://dl-cdn.alpinelinux.org/alpine/v3.13/community]
+#12 3.014 OK: 13900 distinct packages available
+#12 3.712 (1/3) Upgrading libcrypto1.1 (1.1.1n-r0 -> 1.1.1o-r0)
+#12 3.878 (2/3) Upgrading libssl1.1 (1.1.1n-r0 -> 1.1.1o-r0)
+#12 3.903 (3/3) Upgrading zlib (1.2.12-r0 -> 1.2.12-r1)
+#12 3.910 OK: 6 MiB in 14 packages
+#12 4.016 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
+#12 4.281 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
+#12 4.853 (1/3) Installing pcre (8.44-r0)
+#12 4.879 (2/3) Installing nginx (1.18.0-r15)
+#12 4.887 Executing nginx-1.18.0-r15.pre-install
+#12 5.111 Executing nginx-1.18.0-r15.post-install
+#12 5.117 (3/3) Installing openssl (1.1.1o-r0)
+#12 5.149 Executing busybox-1.32.1-r8.trigger
+#12 5.159 OK: 8 MiB in 17 packages
+#12 DONE 8.0s
+
+#14 [srcs_wordpress  2/11] RUN	APK update && apk upgrade && apk add --no-cache 		wget				        tar                 		mariadb-client				redis						php7						php7-fpm					php7-bcmath					php7-bz2 					php7-calendar				php7-ctype					php7-curl					php7-dom					php7-exif					php7-fileinfo				php7-gd						php7-gmagick				php7-gmp					php7-iconv					php7-imap					php7-intl					php7-json					php7-mbstring				php7-mcrypt					php7-memcache				php7-mysqli					php7-mysqlnd				php7-openssl				php7-pcntl					php7-pdo					php7-pdo_mysql				php7-pdo_pgsql				php7-pdo_sqlite 			php7-pgsql					php7-phar					php7-posix					php7-session				php7-shmop					php7-simplexml				php7-soap					php7-sockets				php7-sodium					php7-sqlite3				php7-sysvsem				php7-sysvshm				php7-tokenizer				php7-xml					php7-xmlreader				php7-xmlwriter				php7-xsl					php7-zip					php7-zlib
+#14 8.069 (63/114) Installing php7-gmp (7.4.26-r0)
+#14 8.091 (64/114) Installing php7-iconv (7.4.26-r0)
+#14 8.097 (65/114) Installing c-client (2007f-r11)
+#14 8.116 (66/114) Installing php7-imap (7.4.26-r0)
+#14 8.124 (67/114) Installing icu-libs (67.1-r2)
+#14 ...
+
+#6 [srcs_mariadb 2/3] RUN	APK update && apk upgrade && apk add --no-cache         mariadb         mariadb-client
+#6 4.129 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
+#6 4.379 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
+#6 4.945 v3.13.10-44-gfad72fd31b [https://dl-cdn.alpinelinux.org/alpine/v3.13/main]
+#6 4.963 v3.13.10-39-gbc0382416e [https://dl-cdn.alpinelinux.org/alpine/v3.13/community]
+#6 4.963 OK: 13900 distinct packages available
+#6 5.655 (1/3) Upgrading libcrypto1.1 (1.1.1n-r0 -> 1.1.1o-r0)
+#6 5.824 (2/3) Upgrading libssl1.1 (1.1.1n-r0 -> 1.1.1o-r0)
+#6 5.855 (3/3) Upgrading zlib (1.2.12-r0 -> 1.2.12-r1)
+#6 5.864 OK: 6 MiB in 14 packages
+#6 5.971 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
+#6 6.243 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
+#6 6.798 (1/16) Installing mariadb-common (10.5.16-r0)
+#6 6.865 (2/16) Installing libaio (0.3.112-r1)
+#6 6.872 (3/16) Installing ca-certificates (20211220-r0)
+#6 6.915 (4/16) Installing brotli-libs (1.0.9-r3)
+#6 6.947 (5/16) Installing nghttp2-libs (1.42.0-r1)
+#6 6.955 (6/16) Installing libcurl (7.79.1-r1)
+#6 6.971 (7/16) Installing libgcc (10.2.1_pre1-r3)
+#6 6.978 (8/16) Installing xz-libs (5.2.5-r1)
+#6 6.985 (9/16) Installing ncurses-terminfo-base (6.2_p20210109-r0)
+#6 6.995 (10/16) Installing ncurses-libs (6.2_p20210109-r0)
+#6 7.018 (11/16) Installing linux-pam (1.5.1-r0)
+#6 7.063 (12/16) Installing pcre2 (10.36-r0)
+#6 7.094 (13/16) Installing libstdc++ (10.2.1_pre1-r3)
+#6 7.195 (14/16) Installing libxml2 (2.9.14-r0)
+#6 7.231 (15/16) Installing mariadb (10.5.16-r0)
+#6 7.251 Executing mariadb-10.5.16-r0.pre-install
+#6 ...
+
+#14 [srcs_wordpress  2/11] RUN	APK update && apk upgrade && apk add --no-cache 		wget				        tar                 		mariadb-client				redis						php7						php7-fpm					php7-bcmath					php7-bz2 					php7-calendar				php7-ctype					php7-curl					php7-dom					php7-exif					php7-fileinfo				php7-gd						php7-gmagick				php7-gmp					php7-iconv					php7-imap					php7-intl					php7-json					php7-mbstring				php7-mcrypt					php7-memcache				php7-mysqli					php7-mysqlnd				php7-openssl				php7-pcntl					php7-pdo					php7-pdo_mysql				php7-pdo_pgsql				php7-pdo_sqlite 			php7-pgsql					php7-phar					php7-posix					php7-session				php7-shmop					php7-simplexml				php7-soap					php7-sockets				php7-sodium					php7-sqlite3				php7-sysvsem				php7-sysvshm				php7-tokenizer				php7-xml					php7-xmlreader				php7-xmlwriter				php7-xsl					php7-zip					php7-zlib
+#14 8.529 (68/114) Installing php7-intl (7.4.26-r0)
+#14 8.539 (69/114) Installing php7-json (7.4.26-r0)
+#14 8.544 (70/114) Installing libmcrypt (2.5.8-r9)
+#14 8.572 (71/114) Installing php7-pecl-mcrypt (1.0.4-r0)
+#14 8.572 (72/114) Installing php7-session (7.4.26-r0)
+#14 8.572 (73/114) Installing php7-pecl-memcache (4.0.5.2-r1)
+#14 8.587 (74/114) Installing php7-openssl (7.4.26-r0)
+#14 8.587 (75/114) Installing php7-mysqlnd (7.4.26-r0)
+#14 8.593 (76/114) Installing php7-mysqli (7.4.26-r0)
+#14 8.599 (77/114) Installing php7-pcntl (7.4.26-r0)
+#14 8.604 (78/114) Installing php7-pdo (7.4.26-r0)
+#14 8.610 (79/114) Installing php7-pdo_mysql (7.4.26-r0)
+#14 8.616 (80/114) Installing gdbm (1.19-r0)
+#14 8.623 (81/114) Installing libsasl (2.1.28-r0)
+#14 8.631 (82/114) Installing libldap (2.4.57-r1)
+#14 8.645 (83/114) Installing libpq (13.7-r0)
+#14 8.653 (84/114) Installing php7-pdo_pgsql (7.4.26-r0)
+#14 8.669 (85/114) Installing sqlite-libs (3.34.1-r0)
+#14 8.697 (86/114) Installing php7-pdo_sqlite (7.4.26-r0)
+#14 8.704 (87/114) Installing php7-pgsql (7.4.26-r0)
+#14 8.710 (88/114) Installing php7-phar (7.4.26-r0)
+#14 8.720 (89/114) Installing php7-posix (7.4.26-r0)
+#14 8.725 (90/114) Installing php7-shmop (7.4.26-r0)
+#14 8.730 (91/114) Installing php7-simplexml (7.4.26-r0)
+#14 8.735 (92/114) Installing php7-soap (7.4.26-r0)
+#14 8.949 (93/114) Installing php7-sockets (7.4.26-r0)
+#14 8.955 (94/114) Installing libsodium (1.0.18-r0)
+#14 8.964 (95/114) Installing php7-sodium (7.4.26-r0)
+#14 8.970 (96/114) Installing php7-sqlite3 (7.4.26-r0)
+#14 8.977 (97/114) Installing php7-sysvsem (7.4.26-r0)
+#14 8.983 (98/114) Installing php7-sysvshm (7.4.26-r0)
+#14 8.987 (99/114) Installing php7-tokenizer (7.4.26-r0)
+#14 8.995 (100/114) Installing php7-xml (7.4.26-r0)
+#14 9.001 (101/114) Installing php7-xmlreader (7.4.26-r0)
+#14 9.007 (102/114) Installing php7-xmlwriter (7.4.26-r0)
+#14 9.013 (103/114) Installing libgpg-error (1.41-r0)
+#14 9.025 (104/114) Installing libgcrypt (1.8.8-r1)
+#14 9.071 (105/114) Installing libxslt (1.1.35-r0)
+#14 9.082 (106/114) Installing php7-xsl (7.4.26-r0)
+#14 9.091 (107/114) Installing libzip (1.7.3-r2)
+#14 9.096 (108/114) Installing php7-zip (7.4.26-r0)
+#14 9.101 (109/114) Installing redis (6.0.16-r0)
+#14 9.110 Executing redis-6.0.16-r0.pre-install
+#14 ...
+
+#15 [srcs_nginx 3/6] RUN mkdir /etc/nginx/ssl
+#15 ...
+
+#6 [srcs_mariadb 2/3] RUN	APK update && apk upgrade && apk add --no-cache         mariadb         mariadb-client
+#6 32.06 (16/16) Installing mariadb-client (10.5.16-r0)
+#6 33.75 Executing busybox-1.32.1-r8.trigger
+#6 34.17 Executing ca-certificates-20211220-r0.trigger
+#6 ...
+
+#14 [srcs_wordpress  2/11] RUN	APK update && apk upgrade && apk add --no-cache 		wget				        tar                 		mariadb-client				redis						php7						php7-fpm					php7-bcmath					php7-bz2 					php7-calendar				php7-ctype					php7-curl					php7-dom					php7-exif					php7-fileinfo				php7-gd						php7-gmagick				php7-gmp					php7-iconv					php7-imap					php7-intl					php7-json					php7-mbstring				php7-mcrypt					php7-memcache				php7-mysqli					php7-mysqlnd				php7-openssl				php7-pcntl					php7-pdo					php7-pdo_mysql				php7-pdo_pgsql				php7-pdo_sqlite 			php7-pgsql					php7-phar					php7-posix					php7-session				php7-shmop					php7-simplexml				php7-soap					php7-sockets				php7-sodium					php7-sqlite3				php7-sysvsem				php7-sysvshm				php7-tokenizer				php7-xml					php7-xmlreader				php7-xmlwriter				php7-xsl					php7-zip					php7-zlib
+#14 32.35 Executing redis-6.0.16-r0.post-install
+#14 32.37 (110/114) Installing libacl (2.2.53-r0)
+#14 32.39 (111/114) Installing tar (1.34-r0)
+#14 32.40 (112/114) Installing libunistring (0.9.10-r0)
+#14 32.43 (113/114) Installing libidn2 (2.3.0-r0)
+#14 32.44 (114/114) Installing wget (1.21.1-r1)
+#14 32.46 Executing busybox-1.32.1-r8.trigger
+#14 32.46 Executing ca-certificates-20211220-r0.trigger
+#14 ...
+
+#6 [srcs_mariadb 2/3] RUN	APK update && apk upgrade && apk add --no-cache         mariadb         mariadb-client
+#6 41.88 OK: 180 MiB in 30 packages
+#6 DONE 42.5s
+
+#14 [srcs_wordpress  2/11] RUN	APK update && apk upgrade && apk add --no-cache 		wget				        tar                 		mariadb-client				redis						php7						php7-fpm					php7-bcmath					php7-bz2 					php7-calendar				php7-ctype					php7-curl					php7-dom					php7-exif					php7-fileinfo				php7-gd						php7-gmagick				php7-gmp					php7-iconv					php7-imap					php7-intl					php7-json					php7-mbstring				php7-mcrypt					php7-memcache				php7-mysqli					php7-mysqlnd				php7-openssl				php7-pcntl					php7-pdo					php7-pdo_mysql				php7-pdo_pgsql				php7-pdo_sqlite 			php7-pgsql					php7-phar					php7-posix					php7-session				php7-shmop					php7-simplexml				php7-soap					php7-sockets				php7-sodium					php7-sqlite3				php7-sysvsem				php7-sysvshm				php7-tokenizer				php7-xml					php7-xmlreader				php7-xmlwriter				php7-xsl					php7-zip					php7-zlib
+#14 40.20 Executing shared-mime-info-2.0-r0.trigger
+#14 ...
+
+#16 [srcs_mariadb 3/3] COPY tools/configure.sh /tmp/configure.sh
+#16 DONE 1.7s
+
+#15 [srcs_nginx 3/6] RUN mkdir /etc/nginx/ssl
+#15 ...
+
+#17 [srcs_mariadb] exporting to image
+#17 exporting layers
+#17 ...
+
+#15 [srcs_nginx 3/6] RUN mkdir /etc/nginx/ssl
+#15 DONE 36.9s
+
+#18 [srcs_nginx 4/6] RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes         -out /etc/nginx/ssl/raccoman.pem         -keyout /etc/nginx/ssl/raccoman.key         -subj "/C=IT/ST=Rome/L=Rome/O=42 School/OU=raccoman/CN=raccoman/"
+#18 2.279 Generating a RSA private key
+#18 2.287 ...............................................................................................................................................................................................................................................................................++++
+#18 4.611 ..........................++++
+#18 4.820 writing new private key to '/etc/nginx/ssl/raccoman.key'
+#18 4.820 -----
+#18 DONE 5.4s
+
+#19 [srcs_nginx 5/6] RUN mkdir -p /run/nginx
+#19 DONE 3.9s
+
+#17 [srcs_mariadb] exporting to image
+#17 ...
+
+#20 [srcs_nginx 6/6] COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
+#20 DONE 10.0s
+
+#14 [srcs_wordpress  2/11] RUN	APK update && apk upgrade && apk add --no-cache 		wget				        tar                 		mariadb-client				redis						php7						php7-fpm					php7-bcmath					php7-bz2 					php7-calendar				php7-ctype					php7-curl					php7-dom					php7-exif					php7-fileinfo				php7-gd						php7-gmagick				php7-gmp					php7-iconv					php7-imap					php7-intl					php7-json					php7-mbstring				php7-mcrypt					php7-memcache				php7-mysqli					php7-mysqlnd				php7-openssl				php7-pcntl					php7-pdo					php7-pdo_mysql				php7-pdo_pgsql				php7-pdo_sqlite 			php7-pgsql					php7-phar					php7-posix					php7-session				php7-shmop					php7-simplexml				php7-soap					php7-sockets				php7-sodium					php7-sqlite3				php7-sysvsem				php7-sysvshm				php7-tokenizer				php7-xml					php7-xmlreader				php7-xmlwriter				php7-xsl					php7-zip					php7-zlib
+#14 ...
+
+#17 [srcs_nginx] exporting to image
+#17 exporting layers
+#17 exporting layers 26.1s done
+#17 writing image sha256:adae98aba1018ee555cc27926f603f580e4c7d92a4c4eae8a7385d43fde7bec7
+#17 writing image sha256:adae98aba1018ee555cc27926f603f580e4c7d92a4c4eae8a7385d43fde7bec7 0.2s done
+#17 naming to docker.io/library/srcs_mariadb
+#17 exporting layers 4.0s done
+#17 writing image sha256:58fd3d2522fb066bfbe81c6505c6e17c8f75dd64790b7dbf4686c165db841de2 0.0s done
+#17 naming to docker.io/library/srcs_nginx
+#17 naming to docker.io/library/srcs_mariadb 0.1s done
+#17 naming to docker.io/library/srcs_nginx 0.1s done
+#17 DONE 26.5s
+
+#14 [srcs_wordpress  2/11] RUN	APK update && apk upgrade && apk add --no-cache 		wget				        tar                 		mariadb-client				redis						php7						php7-fpm					php7-bcmath					php7-bz2 					php7-calendar				php7-ctype					php7-curl					php7-dom					php7-exif					php7-fileinfo				php7-gd						php7-gmagick				php7-gmp					php7-iconv					php7-imap					php7-intl					php7-json					php7-mbstring				php7-mcrypt					php7-memcache				php7-mysqli					php7-mysqlnd				php7-openssl				php7-pcntl					php7-pdo					php7-pdo_mysql				php7-pdo_pgsql				php7-pdo_sqlite 			php7-pgsql					php7-phar					php7-posix					php7-session				php7-shmop					php7-simplexml				php7-soap					php7-sockets				php7-sodium					php7-sqlite3				php7-sysvsem				php7-sysvshm				php7-tokenizer				php7-xml					php7-xmlreader				php7-xmlwriter				php7-xsl					php7-zip					php7-zlib
+#14 78.24 Executing gdk-pixbuf-2.42.4-r0.trigger
+#14 78.35 OK: 135 MiB in 128 packages
+#14 DONE 80.2s
+
+#21 [srcs_wordpress  3/11] RUN	ADDUSER -S nginx &&	addgroup -S nginx
+#21 DONE 15.6s
+
+#22 [srcs_wordpress  4/11] COPY conf/php-fpm.conf /etc/php7/php-fpm.conf
+#22 DONE 0.6s
+
+#23 [srcs_wordpress  5/11] COPY conf/www.conf /etc/php7/php-fpm.d/www.conf
+#23 DONE 0.6s
+
+#24 [srcs_wordpress  6/11] COPY conf/index.html /tmp/index.html
+#24 DONE 0.5s
+
+#25 [srcs_wordpress  7/11] RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+#25 0.803 --2022-06-13 13:05:49--  https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+#25 0.838 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.109.133, ...
+#25 0.843 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+#25 0.854 HTTP request sent, awaiting response... 200 OK
+#25 1.021 Length: 6494444 (6.2M) [application/octet-stream]
+#25 1.021 Saving to: 'wp-cli.phar'
+#25 1.021 
+#25 1.021      0K .......... .......... .......... .......... ..........  0% 9.25M 1s
+#25 1.024     50K .......... .......... .......... .......... ..........  1% 9.35M 1s
+#25 1.030    100K .......... .......... .......... .......... ..........  2% 10.3M 1s
+#25 1.033    150K .......... .......... .......... .......... ..........  3% 11.0M 1s
+#25 1.038    200K .......... .......... .......... .......... ..........  3% 25.0M 1s
+#25 1.041    250K .......... .......... .......... .......... ..........  4% 9.69M 1s
+#25 1.046    300K .......... .......... .......... .......... ..........  5% 8.91M 1s
+#25 1.052    350K .......... .......... .......... .......... ..........  6% 14.9M 1s
+#25 1.054    400K .......... .......... .......... .......... ..........  7% 28.9M 0s
+#25 1.057    450K .......... .......... .......... .......... ..........  7% 11.0M 0s
+#25 1.060    500K .......... .......... .......... .......... ..........  8% 87.1M 0s
+#25 1.060    550K .......... .......... .......... .......... ..........  9% 21.4M 0s
+#25 1.063    600K .......... .......... .......... .......... .......... 10% 27.8M 0s
+#25 1.065    650K .......... .......... .......... .......... .......... 11%  146M 0s
+#25 1.065    700K .......... .......... .......... .......... .......... 11%  175M 0s
+#25 1.065    750K .......... .......... .......... .......... .......... 12% 10.7M 0s
+#25 1.071    800K .......... .......... .......... .......... .......... 13% 40.3M 0s
+#25 1.071    850K .......... .......... .......... .......... .......... 14% 25.5M 0s
+#25 1.073    900K .......... .......... .......... .......... .......... 14% 14.8M 0s
+#25 1.076    950K .......... .......... .......... .......... .......... 15% 15.9M 0s
+#25 1.080   1000K .......... .......... .......... .......... .......... 16% 30.4M 0s
+#25 1.083   1050K .......... .......... .......... .......... .......... 17% 9.39M 0s
+#25 1.086   1100K .......... .......... .......... .......... .......... 18% 15.5M 0s
+#25 1.089   1150K .......... .......... .......... .......... .......... 18% 28.5M 0s
+#25 1.090   1200K .......... .......... .......... .......... .......... 19% 14.7M 0s
+#25 1.094   1250K .......... .......... .......... .......... .......... 20% 47.2M 0s
+#25 1.097   1300K .......... .......... .......... .......... .......... 21%  182M 0s
+#25 1.097   1350K .......... .......... .......... .......... .......... 22%  149M 0s
+#25 1.097   1400K .......... .......... .......... .......... .......... 22%  164M 0s
+#25 1.097   1450K .......... .......... .......... .......... .......... 23%  182M 0s
+#25 1.097   1500K .......... .......... .......... .......... .......... 24%  178M 0s
+#25 1.097   1550K .......... .......... .......... .......... .......... 25%  165M 0s
+#25 1.097   1600K .......... .......... .......... .......... .......... 26% 8.74M 0s
+#25 1.104   1650K .......... .......... .......... .......... .......... 26% 16.6M 0s
+#25 1.105   1700K .......... .......... .......... .......... .......... 27% 21.6M 0s
+#25 1.107   1750K .......... .......... .......... .......... .......... 28% 21.4M 0s
+#25 1.110   1800K .......... .......... .......... .......... .......... 29% 27.9M 0s
+#25 1.112   1850K .......... .......... .......... .......... .......... 29% 28.3M 0s
+#25 1.113   1900K .......... .......... .......... .......... .......... 30% 55.4M 0s
+#25 1.114   1950K .......... .......... .......... .......... .......... 31% 22.1M 0s
+#25 1.117   2000K .......... .......... .......... .......... .......... 32% 52.0M 0s
+#25 1.117   2050K .......... .......... .......... .......... .......... 33% 21.7M 0s
+#25 1.119   2100K .......... .......... .......... .......... .......... 33% 45.9M 0s
+#25 1.121   2150K .......... .......... .......... .......... .......... 34% 96.9M 0s
+#25 1.121   2200K .......... .......... .......... .......... .......... 35% 12.8M 0s
+#25 1.125   2250K .......... .......... .......... .......... .......... 36%  117M 0s
+#25 1.125   2300K .......... .......... .......... .......... .......... 37% 21.9M 0s
+#25 1.127   2350K .......... .......... .......... .......... .......... 37% 30.3M 0s
+#25 1.129   2400K .......... .......... .......... .......... .......... 38% 28.4M 0s
+#25 1.132   2450K .......... .......... .......... .......... .......... 39% 76.6M 0s
+#25 1.132   2500K .......... .......... .......... .......... .......... 40% 22.4M 0s
+#25 1.133   2550K .......... .......... .......... .......... .......... 40% 27.6M 0s
+#25 1.135   2600K .......... .......... .......... .......... .......... 41% 41.9M 0s
+#25 1.137   2650K .......... .......... .......... .......... .......... 42% 35.0M 0s
+#25 1.138   2700K .......... .......... .......... .......... .......... 43% 40.9M 0s
+#25 1.140   2750K .......... .......... .......... .......... .......... 44% 69.2M 0s
+#25 1.140   2800K .......... .......... .......... .......... .......... 44% 47.4M 0s
+#25 1.141   2850K .......... .......... .......... .......... .......... 45% 73.4M 0s
+#25 1.142   2900K .......... .......... .......... .......... .......... 46% 17.1M 0s
+#25 1.145   2950K .......... .......... .......... .......... .......... 47% 14.1M 0s
+#25 1.149   3000K .......... .......... .......... .......... .......... 48% 42.2M 0s
+#25 1.149   3050K .......... .......... .......... .......... .......... 48% 15.1M 0s
+#25 1.152   3100K .......... .......... .......... .......... .......... 49% 34.5M 0s
+#25 1.154   3150K .......... .......... .......... .......... .......... 50% 15.6M 0s
+#25 1.157   3200K .......... .......... .......... .......... .......... 51% 23.4M 0s
+#25 1.161   3250K .......... .......... .......... .......... .......... 52% 69.2M 0s
+#25 1.161   3300K .......... .......... .......... .......... .......... 52% 92.6M 0s
+#25 1.161   3350K .......... .......... .......... .......... .......... 53% 58.0M 0s
+#25 1.161   3400K .......... .......... .......... .......... .......... 54%  170M 0s
+#25 1.161   3450K .......... .......... .......... .......... .......... 55% 5.08M 0s
+#25 1.172   3500K .......... .......... .......... .......... .......... 55% 39.1M 0s
+#25 1.172   3550K .......... .......... .......... .......... .......... 56% 13.7M 0s
+#25 1.176   3600K .......... .......... .......... .......... .......... 57% 24.5M 0s
+#25 1.178   3650K .......... .......... .......... .......... .......... 58% 32.0M 0s
+#25 1.179   3700K .......... .......... .......... .......... .......... 59% 35.4M 0s
+#25 1.181   3750K .......... .......... .......... .......... .......... 59% 19.1M 0s
+#25 1.185   3800K .......... .......... .......... .......... .......... 60% 43.7M 0s
+#25 1.186   3850K .......... .......... .......... .......... .......... 61% 17.0M 0s
+#25 1.188   3900K .......... .......... .......... .......... .......... 62% 18.9M 0s
+#25 1.190   3950K .......... .......... .......... .......... .......... 63% 29.2M 0s
+#25 1.192   4000K .......... .......... .......... .......... .......... 63%  127M 0s
+#25 1.196   4050K .......... .......... .......... .......... .......... 64% 9.25M 0s
+#25 1.198   4100K .......... .......... .......... .......... .......... 65% 22.4M 0s
+#25 1.199   4150K .......... .......... .......... .......... .......... 66% 15.9M 0s
+#25 1.203   4200K .......... .......... .......... .......... .......... 67% 48.1M 0s
+#25 1.203   4250K .......... .......... .......... .......... .......... 67% 26.4M 0s
+#25 1.206   4300K .......... .......... .......... .......... .......... 68% 30.5M 0s
+#25 1.207   4350K .......... .......... .......... .......... .......... 69% 30.4M 0s
+#25 1.209   4400K .......... .......... .......... .......... .......... 70% 16.7M 0s
+#25 1.212   4450K .......... .......... .......... .......... .......... 70% 42.6M 0s
+#25 1.215   4500K .......... .......... .......... .......... .......... 71% 78.4M 0s
+#25 1.215   4550K .......... .......... .......... .......... .......... 72%  130M 0s
+#25 1.215   4600K .......... .......... .......... .......... .......... 73%  176M 0s
+#25 1.215   4650K .......... .......... .......... .......... .......... 74%  182M 0s
+#25 1.215   4700K .......... .......... .......... .......... .......... 74% 10.2M 0s
+#25 1.219   4750K .......... .......... .......... .......... .......... 75% 20.6M 0s
+#25 1.221   4800K .......... .......... .......... .......... .......... 76% 13.4M 0s
+#25 1.225   4850K .......... .......... .......... .......... .......... 77% 28.9M 0s
+#25 1.226   4900K .......... .......... .......... .......... .......... 78% 36.7M 0s
+#25 1.228   4950K .......... .......... .......... .......... .......... 78% 19.8M 0s
+#25 1.230   5000K .......... .......... .......... .......... .......... 79% 20.2M 0s
+#25 1.233   5050K .......... .......... .......... .......... .......... 80% 31.1M 0s
+#25 1.235   5100K .......... .......... .......... .......... .......... 81% 30.3M 0s
+#25 1.236   5150K .......... .......... .......... .......... .......... 81% 24.6M 0s
+#25 1.238   5200K .......... .......... .......... .......... .......... 82% 81.2M 0s
+#25 1.238   5250K .......... .......... .......... .......... .......... 83% 39.5M 0s
+#25 1.240   5300K .......... .......... .......... .......... .......... 84% 43.5M 0s
+#25 1.241   5350K .......... .......... .......... .......... .......... 85% 61.0M 0s
+#25 1.242   5400K .......... .......... .......... .......... .......... 85% 40.4M 0s
+#25 1.243   5450K .......... .......... .......... .......... .......... 86%  171M 0s
+#25 1.243   5500K .......... .......... .......... .......... .......... 87% 40.4M 0s
+#25 1.245   5550K .......... .......... .......... .......... .......... 88% 35.0M 0s
+#25 1.246   5600K .......... .......... .......... .......... .......... 89%  179M 0s
+#25 1.246   5650K .......... .......... .......... .......... .......... 89% 34.9M 0s
+#25 1.248   5700K .......... .......... .......... .......... .......... 90% 34.2M 0s
+#25 1.249   5750K .......... .......... .......... .......... .......... 91%  142M 0s
+#25 1.249   5800K .......... .......... .......... .......... .......... 92% 39.2M 0s
+#25 1.250   5850K .......... .......... .......... .......... .......... 93% 47.8M 0s
+#25 1.252   5900K .......... .......... .......... .......... .......... 93% 65.2M 0s
+#25 1.252   5950K .......... .......... .......... .......... .......... 94% 32.7M 0s
+#25 1.254   6000K .......... .......... .......... .......... .......... 95%  176M 0s
+#25 1.254   6050K .......... .......... .......... .......... .......... 96%  176M 0s
+#25 1.254   6100K .......... .......... .......... .......... .......... 96% 28.0M 0s
+#25 1.258   6150K .......... .......... .......... .......... .......... 97%  152M 0s
+#25 1.258   6200K .......... .......... .......... .......... .......... 98%  182M 0s
+#25 1.258   6250K .......... .......... .......... .......... .......... 99%  180M 0s
+#25 1.258   6300K .......... .......... .......... .......... ..        100%  200M=0.2s
+#25 1.258 
+#25 1.258 2022-06-13 13:05:50 (25.9 MB/s) - 'wp-cli.phar' saved [6494444/6494444]
+#25 1.258 
+#25 DONE 1.6s
+
+#26 [srcs_wordpress  8/11] RUN chmod +x wp-cli.phar
+#26 DONE 1.4s
+
+#27 [srcs_wordpress  9/11] RUN cp wp-cli.phar /usr/bin/wp
+#27 DONE 1.4s
+
+#28 [srcs_wordpress 10/11] WORKDIR /var/www/html/wordpress
+#28 DONE 0.6s
+
+#29 [srcs_wordpress 11/11] COPY tools/configure.sh /tmp/configure.sh
+#29 DONE 0.5s
+
+#17 [srcs_wordpress] exporting to image
+#17 exporting layers
+#17 exporting layers 6.2s done
+#17 writing image sha256:5ad46e2e7c5037b866c6582529fc09de048ff425a178b5cffe8fe6ccb4f7d67a 0.0s done
+#17 naming to docker.io/library/srcs_wordpress
+#17 naming to docker.io/library/srcs_wordpress 0.0s done
+#17 DONE 32.7s
+Attaching to mariadb, nginx, wordpress
+[Note] /usr/bin/mysqld (mysqld 10.5.16-MariaDB) starting as process 58 ...
+[Note] InnoDB: Uses event mutexes
+[Note] InnoDB: Compressed tables use zlib 1.2.12
+[Note] InnoDB: Number of pools: 1
+[Note] InnoDB: Using crc32 + pclmulqdq instructions
+[Note] mysqld: O_TMPFILE is not supported on /var/tmp (disabling future attempts)
+[Note] InnoDB: Using Linux native AIO
+[Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+[Note] InnoDB: Completed initialization of buffer pool
+[Note] InnoDB: 128 rollback segments are active.
+[Note] InnoDB: Creating shared tablespace for temporary tables
+[Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+[Note] InnoDB: File './ibtmp1' size is now 12 MB.
+[Note] InnoDB: 10.5.16 started; log sequence number 45106; transaction id 20
+[Note] Plugin 'FEEDBACK' is disabled.
+[Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+[Note] InnoDB: Buffer pool(s) load completed at 220613 13:06:11
+[Note] /usr/bin/mysqld (mysqld 10.5.16-MariaDB) starting as process 1 ...
+[Note] InnoDB: Uses event mutexes
+[Note] InnoDB: Compressed tables use zlib 1.2.12
+[Note] InnoDB: Number of pools: 1
+[Note] InnoDB: Using crc32 + pclmulqdq instructions
+[Note] mysqld: O_TMPFILE is not supported on /var/tmp (disabling future attempts)
+[Note] InnoDB: Using Linux native AIO
+[Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+[Note] InnoDB: Completed initialization of buffer pool
+[Note] InnoDB: 128 rollback segments are active.
+[Note] InnoDB: Creating shared tablespace for temporary tables
+[Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+[Note] InnoDB: File './ibtmp1' size is now 12 MB.
+[Note] InnoDB: 10.5.16 started; log sequence number 45118; transaction id 20
+[Note] Plugin 'FEEDBACK' is disabled.
+[Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+[Note] InnoDB: Buffer pool(s) load completed at 220613 13:06:12
+[Note] Server socket created on IP: '0.0.0.0'.
+[Note] Reading of all Master_info entries succeeded
+[Note] Added new Master_info '' to hash table
+[Note] /usr/bin/mysqld: ready for connections.
+mariadb    | Version: '10.5.16-MariaDB'  socket: '/run/mysqld/mysqld.sock'  port: 3306  MariaDB Server
+wordpress  | Downloading WordPress 6.0 (en_US)...
+wordpress  | md5 hash verified: 1f32a656f698efdaecedce7d0a230dd9
+wordpress  | Success: WordPress downloaded.
+wordpress  | Success: Generated 'wp-config.php' file.
+wordpress  | Success: WordPress installed successfully.
+wordpress  | Success: Created user 2.
+wordpress  | Installing Inspiro (1.7.3)
+wordpress  | Downloading installation package from https://downloads.wordpress.org/theme/inspiro.1.7.3.zip...
+wordpress  | Unpacking the package...
+wordpress  | Installing the theme...
+wordpress  | Theme installed successfully.
+wordpress  | Activating 'inspiro'...
+wordpress  | Success: Switched to 'Inspiro' theme.
+wordpress  | Success: Installed 1 of 1 themes.
+wordpress  | Success: Plugin already updated.
+wordpress  | Wordpress started on :9000
+Gracefully stopping... (press Ctrl+C again to force)
