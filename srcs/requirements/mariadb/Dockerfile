@@ -2,7 +2,6 @@ FROM alpine:3.15
 
 RUN	apk update && apk upgrade && apk add --no-cache \
         mariadb \
-		#maybe remove mariadb-client
         mariadb-client
         
 COPY tools/configure.sh /tmp/configure.sh

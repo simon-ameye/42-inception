@@ -30,20 +30,18 @@ services:
       - backend
     restart: always
     environment:
-      MYSQL_HOST:       ${MYSQL_HOST}
-      WP_DATABASE_NAME: ${WP_DATABASE_NAME}
-      WP_DATABASE_USR:  ${WP_DATABASE_USR}
-      WP_DATABASE_PWD:  ${WP_DATABASE_PWD}
+      MARIADB_MYSQL_HOST:       ${MARIADB_MYSQL_HOST}
+      MARIADB_DB_NAME: ${MARIADB_DB_NAME}
+      MARIADB_USER_NAME:  ${MARIADB_USER_NAME}
+      MARIADB_USER_PASSWORD:  ${MARIADB_USER_PASSWORD}
       DOMAIN_NAME:      ${DOMAIN_NAME}
-      WP_TITLE:         ${WP_TITLE}
-      WP_ADMIN_USR:     ${WP_ADMIN_USR}
-      WP_ADMIN_PWD:     ${WP_ADMIN_PWD}
-      WP_ADMIN_EMAIL:   ${WP_ADMIN_EMAIL}
-      WP_USR:           ${WP_USR}
-      WP_PWD:           ${WP_PWD}
-      WP_EMAIL:         ${WP_EMAIL}
-      REDIS_HOST:       ${REDIS_HOST}
-      REDIS_PWD:        ${REDIS_PWD}
+      WORDPRESS_WEBSITE_TITLE:         ${WORDPRESS_WEBSITE_TITLE}
+      WORDPRESS_ADMIN_NAME:     ${WORDPRESS_ADMIN_NAME}
+      WORDPRESS_ADMIN_PASSWORD:     ${WORDPRESS_ADMIN_PASSWORD}
+      WORDPRESS_ADMIN_EMAIL:   ${WORDPRESS_ADMIN_EMAIL}
+      WORDPRESS_USER_NAME:           ${WORDPRESS_USER_NAME}
+      WORDPRESS_USER_PASSWORD:           ${WORDPRESS_USER_PASSWORD}
+      WORDPRESS_USER_EMAIL:         ${WORDPRESS_USER_EMAIL}
 #
   mariadb:
     build: requirements/mariadb/ #location of docker file
@@ -57,9 +55,9 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PWD:   ${MYSQL_ROOT_PWD}
-      WP_DATABASE_NAME: ${WP_DATABASE_NAME}
-      WP_DATABASE_USR:  ${WP_DATABASE_USR}
-      WP_DATABASE_PWD:  ${WP_DATABASE_PWD}
+      MARIADB_DB_NAME: ${MARIADB_DB_NAME}
+      MARIADB_USER_NAME:  ${MARIADB_USER_NAME}
+      MARIADB_USER_PASSWORD:  ${MARIADB_USER_PASSWORD}
 #    
 #  redis:
 #    build: requirements/bonus/redis
