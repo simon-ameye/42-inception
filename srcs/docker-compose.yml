@@ -1,6 +1,22 @@
 version: '3'
 services:
 
+  mariadb:
+    build: requirements/mariadb/ #location of docker file
+    container_name: mariadb #useful for finding it
+    ports:
+      - "3306:3306" #ports redirection : set to be the same
+    volumes:
+      - mariadb_data:/var/lib/mysql" #volume location
+    networks:
+      - backend #name of the nework to use for sharing data with other containers
+    restart: always #restarting in case of crash
+    environment: #environement variables
+      MARIADB_ROOT_PASSWORD:   ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DB_NAME: ${MARIADB_DB_NAME}
+      MARIADB_USER_NAME:  ${MARIADB_USER_NAME}
+      MARIADB_USER_PASSWORD:  ${MARIADB_USER_PASSWORD}
+
   nginx:
     build: requirements/nginx/
     container_name: nginx
@@ -8,7 +24,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - "~/Desktop/inception/website:/var/www/html"
+      - "wordpress_data:/var/www/html"
     depends_on:
       - wordpress
     networks:
@@ -21,84 +37,42 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - "~/Desktop/inception/website:/var/www/html"
+      - "wordpress_data:/var/www/html"
     depends_on:
       - mariadb
-#      - redis
     networks:
       - frontend
       - backend
     restart: always
     environment:
       MARIADB_MYSQL_HOST:       ${MARIADB_MYSQL_HOST}
-      MARIADB_DB_NAME: ${MARIADB_DB_NAME}
-      MARIADB_USER_NAME:  ${MARIADB_USER_NAME}
-      MARIADB_USER_PASSWORD:  ${MARIADB_USER_PASSWORD}
-      DOMAIN_NAME:      ${DOMAIN_NAME}
-      WORDPRESS_WEBSITE_TITLE:         ${WORDPRESS_WEBSITE_TITLE}
+      MARIADB_DB_NAME:          ${MARIADB_DB_NAME}
+      MARIADB_USER_NAME:        ${MARIADB_USER_NAME}
+      MARIADB_USER_PASSWORD:    ${MARIADB_USER_PASSWORD}
+      DOMAIN_NAME:              ${DOMAIN_NAME}
+      WORDPRESS_WEBSITE_TITLE:  ${WORDPRESS_WEBSITE_TITLE}
       WORDPRESS_ADMIN_NAME:     ${WORDPRESS_ADMIN_NAME}
-      WORDPRESS_ADMIN_PASSWORD:     ${WORDPRESS_ADMIN_PASSWORD}
-      WORDPRESS_ADMIN_EMAIL:   ${WORDPRESS_ADMIN_EMAIL}
-      WORDPRESS_USER_NAME:           ${WORDPRESS_USER_NAME}
-      WORDPRESS_USER_PASSWORD:           ${WORDPRESS_USER_PASSWORD}
-      WORDPRESS_USER_EMAIL:         ${WORDPRESS_USER_EMAIL}
-#
-  mariadb:
-    build: requirements/mariadb/ #location of docker file
-    container_name: mariadb #useful for finding it
-    ports:
-      - "3306:3306" #ports redirection : set to be the same
-    volumes:
-      - "~/Desktop/inception/mariadb:/var/lib/mysql" #volume location
-    networks:
-      - backend #name of the nework to use for sharing data with other containers
-    restart: always
-    environment:
-      MYSQL_ROOT_PWD:   ${MYSQL_ROOT_PWD}
-      MARIADB_DB_NAME: ${MARIADB_DB_NAME}
-      MARIADB_USER_NAME:  ${MARIADB_USER_NAME}
-      MARIADB_USER_PASSWORD:  ${MARIADB_USER_PASSWORD}
-#    
-#  redis:
-#    build: requirements/bonus/redis
-#    container_name: redis
-#    ports:
-#      - "6379:6379"
-#    networks:
-#      - backend
-#    restart: always
-#    environment:
-#      REDIS_PWD: ${REDIS_PWD}
-#
-#  ftp-server:
-#    build: requirements/bonus/ftp-server
-#    container_name: ftp-server
-#    ports:
-#      - "21:21"
-#      - "21100-21110:21100-21110"
-#    volumes:
-#      - "~/Desktop/inception/website:/var/www/html/"
-#    networks:
-#      - backend
-#    restart: always
-#    environment:
-#      FTP_USR: ${FTP_USR}
-#      FTP_PWD: ${FTP_PWD}
-#
-#  portainer:
-#    image: portainer/portainer-ce:latest
-#    container_name: portainer
-#    ports:
-#      - "8000:8000"
-#      - "9443:9443"
-#    volumes:
-#      - "/etc/localtime:/etc/localtime:ro"
-#      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-#    security_opt:
-#      - no-new-privileges:true
-#    restart: always
-#
+      WORDPRESS_ADMIN_PASSWORD: ${WORDPRESS_ADMIN_PASSWORD}
+      WORDPRESS_ADMIN_EMAIL:    ${WORDPRESS_ADMIN_EMAIL}
+      WORDPRESS_USER_NAME:      ${WORDPRESS_USER_NAME}
+      WORDPRESS_USER_PASSWORD:  ${WORDPRESS_USER_PASSWORD}
+      WORDPRESS_USER_EMAIL:     ${WORDPRESS_USER_EMAIL}
+
 networks:
   frontend:
   backend:
 
+volumes:
+  wordpress_data:
+    name: wordpress_data
+    driver: local
+    driver_opts:
+      type: bind
+      device: /home/sameye/data/wordpress_data
+
+  mariadb_data:
+    name: mariadb_data
+    driver: local
+    driver_opts:
+      type: bind
+      device: /home/sameye/data/mariadb_data

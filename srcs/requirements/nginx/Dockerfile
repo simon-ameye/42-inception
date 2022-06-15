@@ -7,9 +7,9 @@ RUN	apk update && apk upgrade && apk add --no-cache \
 
 RUN mkdir /etc/nginx/ssl
 RUN openssl req -x509 -nodes -days 365\
-        -out /etc/nginx/ssl/raccoman.pem \
-        -keyout /etc/nginx/ssl/raccoman.key \
-        -subj "/C=FR/ST=Paris/O=42School/CN=raccoman.com/"\
+        -out /etc/nginx/ssl/sameye.pem \
+        -keyout /etc/nginx/ssl/sameye.key \
+        -subj "/C=FR/ST=Paris/O=42School/CN=sameye.com/"\
 		-addext "subjectAltName=DNS:mydomain.com"\
 		-newkey rsa:2048
 
