@@ -1,6 +1,7 @@
 FROM alpine:3.15
 
-EXPOSE 443
+#vire
+#EXPOSE 443
 RUN	apk update && apk upgrade && apk add --no-cache \
         nginx \
         openssl

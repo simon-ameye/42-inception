@@ -7,10 +7,6 @@ NAME = inception
 
 all: reset prune reload
 
-#should not be required : host already with right name
-linux:
-	@ echo "127.0.0.1 sameye.42.fr" >> /etc/hosts
-
 #reset as required in subject
 reset:
 	-docker stop $(docker ps -qa)
