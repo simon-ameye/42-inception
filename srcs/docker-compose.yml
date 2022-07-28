@@ -1,76 +1,73 @@
-version: '3'
+version: "3.8"
 services:
-
-  mariadb:
-    build: requirements/mariadb/ #location of docker file
-    container_name: mariadb #useful for finding it
-    ports:
-      - "3306:3306" #ports redirection : set to be the same
-    volumes:
-      - mariadb_data:/var/lib/mysql" #volume location
-    networks:
-      - docker-network #name of the nework to use for sharing data with other containers
-    restart: always #restarting in case of crash
-    environment: #environement variables
-      MARIADB_ROOT_PASSWORD:   ${MARIADB_ROOT_PASSWORD}
-      MARIADB_DB_NAME: ${MARIADB_DB_NAME}
-      MARIADB_USER_NAME:  ${MARIADB_USER_NAME}
-      MARIADB_USER_PASSWORD:  ${MARIADB_USER_PASSWORD}
-
-  nginx:
-    build: requirements/nginx/
-    container_name: nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - "wordpress_data:/var/www/html"
-    depends_on:
-      - wordpress
-    networks:
-      - docker-network
-    restart: always
-
   wordpress:
-    build: requirements/wordpress/
     container_name: wordpress
-    ports:
-      - "9000:9000"
-    volumes:
-      - "wordpress_data:/var/www/html"
+    build: requirements/wordpress
     depends_on:
       - mariadb
     networks:
-      - docker-network
+      - docker_network
+    ports:
+      - "9000:9000"
+    volumes:
+      - "wordpress_data:/var/www/html/wordpress"
     restart: always
     environment:
-      MARIADB_MYSQL_HOST:       ${MARIADB_MYSQL_HOST}
-      MARIADB_DB_NAME:          ${MARIADB_DB_NAME}
-      MARIADB_USER_NAME:        ${MARIADB_USER_NAME}
-      MARIADB_USER_PASSWORD:    ${MARIADB_USER_PASSWORD}
-      DOMAIN_NAME:              ${DOMAIN_NAME}
-      WORDPRESS_WEBSITE_TITLE:  ${WORDPRESS_WEBSITE_TITLE}
-      WORDPRESS_ADMIN_NAME:     ${WORDPRESS_ADMIN_NAME}
-      WORDPRESS_ADMIN_PASSWORD: ${WORDPRESS_ADMIN_PASSWORD}
-      WORDPRESS_ADMIN_EMAIL:    ${WORDPRESS_ADMIN_EMAIL}
-      WORDPRESS_USER_NAME:      ${WORDPRESS_USER_NAME}
-      WORDPRESS_USER_PASSWORD:  ${WORDPRESS_USER_PASSWORD}
-      WORDPRESS_USER_EMAIL:     ${WORDPRESS_USER_EMAIL}
+      MYSQL_HOST: ${MYSQL_HOST}
+      WP_DATABASE_NAME: ${WP_DATABASE_NAME}
+      WP_DATABASE_USR: ${WP_DATABASE_USR}
+      WP_DATABASE_PWD: ${WP_DATABASE_PWD}
+      WP_ADMIN_USR: ${WP_ADMIN_USR}
+      WP_ADMIN_PWD: ${WP_ADMIN_PWD}
+      WP_USR: ${WP_USR}
+      WP_PWD: ${WP_PWD}
+      WP_TITLE: ${WP_TITLE}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+      WP_EMAIL: ${WP_EMAIL}
+      DOMAIN_NAME: ${DOMAIN_NAME}
+
+  nginx:
+    container_name: nginx
+    build: requirements/nginx
+    depends_on:
+      - wordpress
+    networks:
+      - docker_network
+    ports:
+      - "443:443"
+    volumes:
+      - wordpress_data:/var/www/html/wordpress
+    restart: always
+
+  mariadb:
+    container_name: mariadb
+    build: requirements/mariadb
+    volumes:
+      - "mariadb_data:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+    networks:
+      - docker_network
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      WP_DATABASE_NAME: ${WP_DATABASE_NAME}
+      WP_DATABASE_USR: ${WP_DATABASE_USR}
+      WP_DATABASE_PWD: ${WP_DATABASE_PWD}
 
 networks:
-  docker-network:
-
+  docker_network:
 volumes:
   wordpress_data:
-    name: wordpress_data
     driver: local
     driver_opts:
-      type: bind
+      type: none
       device: /home/sameye/data/wordpress
+      o: bind
 
   mariadb_data:
-    name: mariadb_data
     driver: local
     driver_opts:
-      type: bind
+      type: none
       device: /home/sameye/data/mariadb
+      o: bind

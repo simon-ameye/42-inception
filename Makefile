@@ -3,17 +3,17 @@
 #docker container run -it alpine:3.13 /bin/sh
 #docker exec -it nginx sh
 
+#reset all
+#docker stop $(docker ps -qa)
+#docker rm $(docker ps -qa)
+#docker rmi -f $(docker images -qa)
+#docker volume rm $(docker volume ls -q)
+#docker network rm $(docker network ls -q)
+
 NAME = inception
 
-all: reset prune reload
+all: prune start
 
-#reset as required in subject
-reset:
-	-docker stop $(docker ps -qa)
-	-docker rm $(docker ps -qa)
-	-docker rmi -f $(docker images -qa)
-	-docker volume rm $(docker volume ls -q)
-	-docker network rm $(docker network ls -q)
 
 #stop the container
 stop:
@@ -25,13 +25,17 @@ clean: stop
 
 #remove unused containers
 prune: clean
-	@ docker system prune -f
+	@ docker-compose -f srcs/docker-compose.yml down --rmi all -v \
+	&& docker system prune -f
 
 #build using file
-reload:
-	@ mkdir /home/sameye/data/
-	@ mkdir /home/sameye/data/wordpress_data/
-	@ mkdir /home/sameye/data/mariadb_data/
-	@ docker-compose -f srcs/docker-compose.yml up --build
+start:
+	mkdir -p /home/sameye/data \
+	&& mkdir /home/sameye/data/wordpress \
+	&& mkdir /home/sameye/data/mariadb \
+	&& docker-compose -f srcs/docker-compose.yml up --build
 
-.PHONY: linux stop clean prune reload all
+run:
+	docker-compose -f srcs/docker-compose.yml up
+
+.PHONY: linux stop clean prune start all

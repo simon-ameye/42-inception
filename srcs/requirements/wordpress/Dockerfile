@@ -60,16 +60,18 @@ COPY conf/php-fpm.conf /etc/php7/php-fpm.conf
 COPY conf/www.conf /etc/php7/php-fpm.d/www.conf
 
 #move default index
-COPY conf/index.html /tmp/index.html
+#COPY conf/index.html /tmp/index.html
 
 #easy install command line interface for wordpress : https://github.com/wp-cli/wp-cli
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
-RUN cp wp-cli.phar /usr/bin/wp
+RUN cp wp-cli.phar /usr/local/bin/wp
+RUN chmod +x /usr/local/bin/wp
 
 #change workdir
 WORKDIR /var/www/html/wordpress
 
+RUN chmod -R 755 /var/www/
 #launch script
 COPY tools/configure.sh /tmp/configure.sh
 ENTRYPOINT [ "sh", "/tmp/configure.sh" ]

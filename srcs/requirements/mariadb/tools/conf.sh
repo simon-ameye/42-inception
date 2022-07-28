@@ -1,20 +1,26 @@
+
 #!/bin/sh
 
 #create a folder for mysql default data and set "mysql" (default mysql user name) as owner
 if [ ! -d "/run/mysqld" ]; then
+
 	mkdir -p /run/mysqld
 	chown -R mysql:mysql /run/mysqld
+
 fi
 
 #if container launched for the first time
 if [ ! -d "/var/lib/mysql/mysql" ]; then
+	touch	/var/lib/mysql/mysql.sock
 	#set mysql owner of mysql exec
-	chown -R mysql:mysql /var/lib/mysql
+  	chown -R mysql:mysql /var/lib/mysql
 	#initializes the MariaDB data directory and creates the system tables in the mysql database
-	mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
+  	mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
+
 	#temp file to store instructions
-	tfile=`mktemp`
-	if [ ! -f "$tfile" ]; then
+	setup=`mktemp`
+
+	if [ ! -f "$setup" ]; then
 		return 1
 	fi
 
@@ -26,22 +32,19 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 	#create normal user
 	#give privilages
 	#refresh
-	cat << EOF > $tfile
+	cat << EOF > $setup
 	USE mysql;
 	FLUSH PRIVILEGES;
-	DELETE FROM	mysql.user WHERE User='';
-	DROP DATABASE test;
-	DELETE FROM mysql.db WHERE Db='test';
-	DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-	ALTER USER 'root'@'localhost' IDENTIFIED BY '$MARIADB_ROOT_PASSWORD';
-	CREATE DATABASE $MARIADB_DB_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;
-	CREATE USER '$MARIADB_USER_NAME'@'%' IDENTIFIED by '$MARIADB_USER_PASSWORD';
-	GRANT ALL PRIVILEGES ON $MARIADB_DB_NAME.* TO '$MARIADB_USER_NAME'@'%';
+	ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';
+	CREATE DATABASE IF NOT EXISTS $WP_DATABASE_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;
+	CREATE USER '$WP_DATABASE_USR'@'%' IDENTIFIED by '$WP_DATABASE_PWD';
+	GRANT ALL PRIVILEGES ON $WP_DATABASE_NAME.* TO '$WP_DATABASE_USR'@'%';
 	FLUSH PRIVILEGES;
 EOF
 	#run mysql exec with instructions
-	/usr/bin/mysqld --user=mysql --bootstrap < $tfile
-	rm -f $tfile
+	/usr/bin/mysqld --user=mysql --bootstrap < $setup
+	rm -rf $setup
+
 fi
 
 # allow remote connections
