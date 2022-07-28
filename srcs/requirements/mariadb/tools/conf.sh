@@ -16,7 +16,7 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
   	chown -R mysql:mysql /var/lib/mysql
 	#initializes the MariaDB data directory and creates the system tables in the mysql database
   	mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
-
+	
 	#temp file to store instructions
 	setup=`mktemp`
 
@@ -35,8 +35,12 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 	cat << EOF > $setup
 	USE mysql;
 	FLUSH PRIVILEGES;
+	DELETE FROM	mysql.user WHERE User='';
+	DROP DATABASE test;
+	DELETE FROM mysql.db WHERE Db='test';
+	DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
 	ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';
-	CREATE DATABASE IF NOT EXISTS $WP_DATABASE_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;
+	CREATE DATABASE $WP_DATABASE_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;
 	CREATE USER '$WP_DATABASE_USR'@'%' IDENTIFIED by '$WP_DATABASE_PWD';
 	GRANT ALL PRIVILEGES ON $WP_DATABASE_NAME.* TO '$WP_DATABASE_USR'@'%';
 	FLUSH PRIVILEGES;
@@ -44,7 +48,6 @@ EOF
 	#run mysql exec with instructions
 	/usr/bin/mysqld --user=mysql --bootstrap < $setup
 	rm -rf $setup
-
 fi
 
 # allow remote connections
@@ -53,3 +56,15 @@ sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf.d/mariadb-ser
 
 #execute mysql
 exec /usr/bin/mysqld --user=mysql --console
+
+
+
+
+
+#	USE mysql;
+#	FLUSH PRIVILEGES;
+#	ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';
+#	CREATE DATABASE $WP_DATABASE_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;
+#	CREATE USER '$WP_DATABASE_USR'@'%' IDENTIFIED by '$WP_DATABASE_PWD';
+#	GRANT ALL PRIVILEGES ON $WP_DATABASE_NAME.* TO '$WP_DATABASE_USR'@'%';
+#	FLUSH PRIVILEGES;

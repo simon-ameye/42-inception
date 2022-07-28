@@ -2,7 +2,7 @@
 
 # wait for mysql
 while ! mariadb -h$MYSQL_HOST -u$WP_DATABASE_USR -p$WP_DATABASE_PWD $WP_DATABASE_NAME &>/dev/null; do
-	sleep 1
+	sleep 5
 done
 
 if [ ! -f "/var/www/html/wordpress/wp-config.php" ]; then
